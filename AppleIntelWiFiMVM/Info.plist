@@ -37,7 +37,7 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2016 Aaron Mulder. All rights reserved.</string>
+	<string>Copyright © 2016-2017 Aaron Mulder and Tim Koers. All rights reserved.</string>
 	<key>OSBundleLibraries</key>
 	<dict>
 		<key>com.apple.kpi.mach</key>

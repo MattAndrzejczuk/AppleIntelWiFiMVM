@@ -22,6 +22,9 @@ private:
     OSData* loadFirmwareSync(struct iwl_drv *drv, const struct iwl_cfg *device);
     static void firmwareLoadComplete( OSKextRequestTag requestTag, OSReturn result, const void *resourceData, uint32_t resourceDataLength, void *context);
     
+    OSObject* translateArray(OSArray* obj);
+    OSObject* translateEntry(OSObject * obj);
+    
     // --------------- Structs ---------------
     struct FirmwareLoadProgress {
         AppleIntelWiFiMVM *driver;
@@ -31,11 +34,13 @@ private:
     // --------------- Variables ---------------
     IOLock *firmwareLoadLock;
     IOPCIDevice *pciDevice;
+    IOMemoryMap *memoryMap;
+    IOWorkLoop *wl;
     iwl_drv *driver;
     bool firmwareLoaded = false;
     FirmwareParser *parser;
 };
 
-#define MYNAME "AppleIntelWiFiMVM"
+#define MYNAME "AppleIntelWiFiMVM Log"
 #define DEBUGLOG(args...) IOLog(args)
 #define	RELEASE(x)	if(x){(x)->release();(x)=NULL;}
